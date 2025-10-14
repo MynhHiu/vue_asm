@@ -35,28 +35,60 @@
       "fullName": "",
       "email": "",
       "password": "1234",
-      "id": "ec99"
+      "id": "ec99",
+      "tuoi": "",
+      "gioiTinh": "",
+      "sanPhamMongMuon": ""
     },
     {
       "userName": "user",
       "fullName": "Minh Huy",
       "email": "huyvmpk03975@gmail.com",
       "password": "1234",
-      "id": "aec9"
+      "id": "aec9",
+      "tuoi": "",
+      "gioiTinh": "",
+      "sanPhamMongMuon": ""
     },
     {
       "id": "48cf",
       "userName": "huy",
       "fullName": "",
       "email": "",
-      "password": "1234"
+      "password": "1234",
+      "tuoi": "",
+      "gioiTinh": "",
+      "sanPhamMongMuon": ""
     },
     {
       "id": "07f3",
       "userName": "mhuy",
       "fullName": "Minh Huy",
       "email": "1234",
-      "password": "1234"
+      "password": "1234",
+      "tuoi": "",
+      "gioiTinh": "",
+      "sanPhamMongMuon": ""
+    }
+  ],
+  "carts": [
+    {
+      "id": "5089",
+      "idUser": "aec9",
+      "productId": "1",
+      "title": "Wireless Headphones",
+      "price": 79.99,
+      "image": "https://picsum.photos/seed/phones/120/120",
+      "quantity": 3
+    },
+    {
+      "id": "adaf",
+      "idUser": "aec9",
+      "productId": "2",
+      "title": "Smart LED Lamp",
+      "price": 29.5,
+      "image": "https://picsum.photos/seed/lamp/120/120",
+      "quantity": 3
     }
   ],
   "products": [

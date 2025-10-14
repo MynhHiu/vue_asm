@@ -12,6 +12,7 @@ import products from './products.vue'
 import postAdmin from './postAdmin.vue'
 import productAdmin from './productAdmin.vue'
 import userAdmin from './userAdmin.vue'
+import carts from './carts.vue'
 
 const routes = [
     {path: '/', component: home, meta: { isAuth: false }},
@@ -22,6 +23,7 @@ const routes = [
     {path: '/products', component: products, meta: { isAuth: false }},
     {path: '/singup', component: singup, meta: { isAuth: false }},
     {path: '/profile', component: profile, meta: { isAuth: true }},
+    {path: '/carts', component: carts, meta: { isAuth: true }},
     {path: '/postAdmin', component: postAdmin, meta: { isAuth: true }},
     {path: '/productAdmin', component: productAdmin, meta: { isAuth: true }},
     {path: '/userAdmin', component: userAdmin, meta: { isAuth: true }},
