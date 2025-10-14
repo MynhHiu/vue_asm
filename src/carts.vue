@@ -5,7 +5,6 @@ import { computed, onMounted } from 'vue'
 const store = useStore()
 const currentUser = JSON.parse(localStorage.getItem('currentUser'))
 
-// Lấy giỏ hàng từ Vuex (dùng state trực tiếp nếu không có module 'cart')
 const carts = computed(() => store.state.carts || [])
 
 onMounted(() => {

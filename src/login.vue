@@ -19,10 +19,10 @@ const loadDuLieu = async () => {
 }
 const login = async () => {
     if (userName.value === "") {
-        message.value = "username not empty" 
+        message.value = "username không được để trống" 
     }
     else if (password.value === "") {
-        message.value = "password not empty"
+        message.value = "password không được để trống"
     }
     else {
         const user = users.value.find(
@@ -68,7 +68,7 @@ onMounted(() => {
           <div class="mt-3 text-center">
             <span :class="isSuccess ? 'text-success' : 'text-danger'">{{ message }}</span>
           </div>
-          <router-link :to="`/singup`"><h2 class="h5 mb-1">Dang ky</h2></router-link>
+          <router-link :to="`/singup`"><h2 class="h5 mb-1">Đăng ký</h2></router-link>
         </form>
       </div>
     </div>

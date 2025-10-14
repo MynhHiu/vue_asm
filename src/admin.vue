@@ -27,12 +27,9 @@ onMounted(async() => {
 const handleDelete = async (id) => {
     const isConfirm = confirm(`Ban co muon xoa id = ${id} nay khong`)
     if (isConfirm) {
-    //b2:
     const response = await axios.delete(`http://localhost:3000/posts/${id}`);
     if (response.status == 200) {
-      //b3: load lại giao diện
       loadDuLieu()
-      // posts.value = response.data
       alert('xoá thành công')
     }
 
@@ -90,7 +87,6 @@ const clearData = () => {
         <router-link to="/userAdmin" class="btn btn-outline-warning mb-2">User</router-link>
       </div>
     </div>
-    <!-- Bạn có thể thêm nội dung quản trị ở đây -->
   </div>
 </template>
 <style scoped>

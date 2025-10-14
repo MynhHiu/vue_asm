@@ -14,12 +14,6 @@ const store = createStore({
     },
 
     getters: {
-        cartCount(state) {
-            return state.carts.reduce((total, item) => total + item.quantity, 0)
-        },
-        cartTotal(state) {
-            return state.carts.reduce((total, item) => total + item.price * item.quantity, 0)
-        },
         cartItems(state) {
             return state.carts
         }
