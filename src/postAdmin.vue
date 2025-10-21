@@ -49,10 +49,10 @@ const loadDuLieu = async () => {
     }
 }
 const handleSubmit = async (e) => {
-  e.preventDefault(); // Ngăn reload trang khi submit form
+  e.preventDefault();
   if (post.title === "") {
     alert('title khong de trong')
-    return; // Dừng hàm lại nếu title rỗng
+    return;
   }
   const payload = {
     title: post.title,
@@ -92,7 +92,7 @@ const logout = () => {
 }
 </script>
 <template>
-    <router-link :to="`/admin`"><h2 class="h5 mb-1">Quay Lai</h2></router-link>
+    <router-link :to="`/admin`" class="btn btn-outline-dark mt-3" >Quay lại</router-link>
     <main class="container py-4">
     <header class="d-flex align-items-center justify-content-between mb-3">
       <h1 class="h3 m-0">Latest Posts</h1>
@@ -172,7 +172,6 @@ const logout = () => {
 }
 .post-excerpt {
       display: -webkit-box;
-      /* -webkit-line-clamp: 2; */
       -webkit-box-orient: vertical;
       overflow: hidden;
     }

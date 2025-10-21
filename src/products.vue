@@ -102,7 +102,7 @@ const handleEdit = (item) => {
 <template>
 <header class="py-4 bg-white border-bottom mb-4">
     <div class="container d-flex align-items-center justify-content-between">
-      <router-link :to="`/`"><h2 class="h5 mb-1">Trang chủ</h2></router-link>
+      <router-link :to="`/`" class="btn btn-outline-secondary me-2 mb-2" ><h2 class="h5 mb-1">Trang chủ</h2></router-link>
     </div>
   </header>
 
@@ -132,7 +132,7 @@ const handleEdit = (item) => {
                     <router-link :to="`/products/${item.id}`"><td><img :src="item.image" alt="Products" class="post-thumb w-100 w-sm-auto" /></td></router-link>
                     <td><router-link :to="`/products/${item.id}`">{{item.title}}</router-link></td>
                     <td><span class="badge text-bg-dark">{{item.category}}</span></td>
-                    <td class="text-end">{{item.price}}$</td>
+                    <td class="text-end">{{item.price}} đ</td>
                     <!-- <button @click="handleEdit(item)" class="btn btn-sm btn-outline-secondary">Edit</button> 
                     <button @click="handleDelete(item.id)" class="btn btn-sm btn-outline-secondary">Delete</button>  -->
                   </tr>

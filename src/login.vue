@@ -68,7 +68,7 @@ onMounted(() => {
           <div class="mt-3 text-center">
             <span :class="isSuccess ? 'text-success' : 'text-danger'">{{ message }}</span>
           </div>
-          <router-link :to="`/singup`"><h2 class="h5 mb-1">Đăng ký</h2></router-link>
+          <router-link :to="`/singup`"><h2 class="h5 mb-1">Dang ky</h2></router-link>
         </form>
       </div>
     </div>

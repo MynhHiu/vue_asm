@@ -10,6 +10,8 @@ const user = reactive({
   userName: '',
   email: '',
   fullName: '',
+  diaChi: '',
+  sdt: '',
   tuoi: '',
   gioiTinh: '',
   sanPhamMongMuon: ''
@@ -24,6 +26,8 @@ onMounted(async () => {
     user.userName = apiUser.userName
     user.email = apiUser.email
     user.fullName = apiUser.fullName
+    user.diaChi = apiUser.diaChi || ''
+    user.sdt = apiUser.sdt || ''
     user.tuoi = apiUser.tuoi || ''
     user.gioiTinh = apiUser.gioiTinh || ''
     user.sanPhamMongMuon = apiUser.sanPhamMongMuon || ''
@@ -40,7 +44,9 @@ const saveProfile = async () => {
       email: user.email,
       tuoi: user.tuoi,
       gioiTinh: user.gioiTinh,
-      sanPhamMongMuon: user.sanPhamMongMuon
+      sanPhamMongMuon: user.sanPhamMongMuon,
+      diaChi: user.diaChi,
+      sdt: user.sdt
     })
     alert('Đã lưu thông tin!')
   } catch (error) {
@@ -49,6 +55,9 @@ const saveProfile = async () => {
 }
 </script>
 <template>
+  <div class="container d-flex align-items-center justify-content-between">
+      <router-link :to="`/`" class="btn btn-outline-secondary me-2 mb-2" ><h2 class="h5 mb-1">Trang chủ</h2></router-link>
+    </div>
   <div class="min-vh-100 d-flex align-items-center justify-content-center bg-light">
     <div class="w-100" style="max-width: 1200px;">
       <div class="card border-0 shadow">
@@ -66,6 +75,14 @@ const saveProfile = async () => {
             <div class="mb-3">
               <label class="form-label">Email</label>
               <input v-model="user.email" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Số Điện Thoại</label>
+              <input v-model="user.sdt" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Địa Chỉ</label>
+              <input v-model="user.diaChi" class="form-control" />
             </div>
             <div class="mb-3">
               <label class="form-label">Tuổi</label>
@@ -86,7 +103,6 @@ const saveProfile = async () => {
             </div>
             <button type="submit" class="btn btn-primary w-100">Lưu thông tin</button>
           </form>
-          <router-link :to="`/`" class="btn btn-link mt-3">Trang chủ</router-link>
         </div>
       </div>
     </div>

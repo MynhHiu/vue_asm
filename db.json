@@ -46,9 +46,11 @@
       "email": "huyvmpk03975@gmail.com",
       "password": "1234",
       "id": "aec9",
-      "tuoi": "",
-      "gioiTinh": "",
-      "sanPhamMongMuon": ""
+      "tuoi": 18,
+      "gioiTinh": "Nam",
+      "sanPhamMongMuon": "ao",
+      "diaChi": "2141 sdf sà",
+      "sdt": "0920128300"
     },
     {
       "id": "48cf",
@@ -73,66 +75,367 @@
   ],
   "carts": [
     {
-      "id": "5089",
-      "idUser": "aec9",
+      "id": "2c64",
+      "idUser": "d6d9",
       "productId": "1",
       "title": "Wireless Headphones",
       "price": 79.99,
       "image": "https://picsum.photos/seed/phones/120/120",
-      "quantity": 3
+      "quantity": 1
     },
     {
-      "id": "adaf",
+      "id": "49ca",
+      "idUser": "ec99",
+      "productId": "101",
+      "title": "Áo thun nam cổ tròn",
+      "price": "479,760",
+      "image": "https://thvnext.bing.com/th/id/OIP.7zh6PWmPhOqcOtfIOX6zawHaHa?w=216&h=204&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3&ucfimg=1",
+      "quantity": 1
+    }
+  ],
+  "orders": [
+    {
+      "id": "453c",
+      "orderCode": "DH1",
+      "userId": "aec9",
+      "fullName": "Minh Huy",
+      "email": "huyvmpk03975@gmail.com",
+      "sdt": "0920128300",
+      "diaChi": "2141 sdf sà",
+      "paymentMethod": "cod",
+      "products": [
+        {
+          "productId": "103",
+          "title": "Áo khoác bomber nam",
+          "quantity": 1,
+          "price": "1,199,760",
+          "image": "https://tse3.mm.bing.net/th/id/OIP.9QLiIFn4Yh-q6j20yZIsNQHaJ4?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"
+        }
+      ],
+      "total": 1199760,
+      "status": "Đã nhận được hàng",
+      "createdAt": "2025-10-19T02:31:24.899Z"
+    },
+    {
+      "id": "826d",
+      "orderCode": "DH2",
+      "userId": "aec9",
+      "fullName": "Minh Huy",
+      "email": "huyvmpk03975@gmail.com",
+      "sdt": "0920128300",
+      "diaChi": "2141 sdf sà",
+      "paymentMethod": "cod",
+      "products": [
+        {
+          "productId": "102",
+          "title": "Áo sơ mi evisu nam",
+          "quantity": 1,
+          "price": "719,760",
+          "image": "https://thvnext.bing.com/th/id/OIP.Mh2yjVQg19udZ4lnH5e8LQHaH7?w=177&h=190&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
+        },
+        {
+          "productId": "103",
+          "title": "Áo khoác bomber nam",
+          "quantity": 1,
+          "price": "1,199,760",
+          "image": "https://tse3.mm.bing.net/th/id/OIP.9QLiIFn4Yh-q6j20yZIsNQHaJ4?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"
+        }
+      ],
+      "total": 1919520,
+      "status": "Đã nhận được hàng",
+      "createdAt": "2025-10-19T02:44:04.349Z"
+    },
+    {
+      "id": "8d07",
+      "orderCode": "DH3",
+      "userId": "aec9",
+      "fullName": "Minh Huy",
+      "email": "huyvmpk03975@gmail.com",
+      "sdt": "0920128300",
+      "diaChi": "2141 sdf sà",
+      "paymentMethod": "cod",
+      "products": [
+        {
+          "productId": "102",
+          "title": "Áo sơ mi evisu nam",
+          "quantity": 1,
+          "price": "719,760",
+          "image": "https://thvnext.bing.com/th/id/OIP.Mh2yjVQg19udZ4lnH5e8LQHaH7?w=177&h=190&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
+        }
+      ],
+      "total": 719760,
+      "status": "Đã nhận được hàng",
+      "createdAt": "2025-10-20T02:19:08.415Z"
+    },
+    {
+      "id": "4dd3",
+      "orderCode": "DH4",
+      "userId": "aec9",
+      "fullName": "Minh Huy",
+      "email": "huyvmpk03975@gmail.com",
+      "sdt": "0920128300",
+      "diaChi": "2141 sdf sà",
+      "paymentMethod": "cod",
+      "products": [
+        {
+          "productId": "102",
+          "title": "Áo sơ mi evisu nam",
+          "quantity": 1,
+          "price": "719,760",
+          "image": "https://thvnext.bing.com/th/id/OIP.Mh2yjVQg19udZ4lnH5e8LQHaH7?w=177&h=190&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
+        },
+        {
+          "productId": "103",
+          "title": "Áo khoác bomber nam",
+          "quantity": 1,
+          "price": "1,199,760",
+          "image": "https://tse3.mm.bing.net/th/id/OIP.9QLiIFn4Yh-q6j20yZIsNQHaJ4?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"
+        }
+      ],
+      "total": 1919520,
+      "status": "Đã nhận được hàng",
+      "createdAt": "2025-10-20T02:27:06.707Z"
+    },
+    {
+      "id": "70a7",
+      "orderCode": "DH5",
+      "userId": "aec9",
+      "fullName": "Minh Huy",
+      "email": "huyvmpk03975@gmail.com",
+      "sdt": "0920128300",
+      "diaChi": "2141 sdf sà",
+      "paymentMethod": "cod",
+      "products": [
+        {
+          "productId": "104",
+          "title": "Quần jeans slim fit",
+          "quantity": 1,
+          "price": "959,760",
+          "image": "https://thvnext.bing.com/th/id/OIP.hGq3M2luGrmIoihUpZf--wHaHa?w=203&h=203&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
+        }
+      ],
+      "total": 959760,
+      "status": "Đã nhận được hàng",
+      "createdAt": "2025-10-20T02:35:20.742Z"
+    },
+    {
+      "id": "878d",
+      "orderCode": "DH6",
+      "userId": "aec9",
+      "fullName": "Minh Huy",
+      "email": "huyvmpk03975@gmail.com",
+      "sdt": "0920128300",
+      "diaChi": "2141 sdf sà",
+      "paymentMethod": "cod",
+      "products": [
+        {
+          "productId": "104",
+          "title": "Quần jeans slim fit",
+          "quantity": 1,
+          "price": "959,760",
+          "image": "https://thvnext.bing.com/th/id/OIP.hGq3M2luGrmIoihUpZf--wHaHa?w=203&h=203&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
+        },
+        {
+          "productId": "105",
+          "title": "Quần jogger thể thao",
+          "quantity": 1,
+          "price": "839,760",
+          "image": "https://tse4.mm.bing.net/th/id/OIP.vDrhgRQBHeY7JOujfeEX9gHaHa?cb=12&pid=ImgDet&ucfimg=1&w=179&h=179&c=7&dpr=1.3&o=7&rm=3"
+        }
+      ],
+      "total": 1799520,
+      "status": "Đã nhận được hàng",
+      "createdAt": "2025-10-20T02:49:49.993Z"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1390",
+      "userId": "aec9",
+      "productId": "102",
+      "orderCode": "DH2",
+      "rating": 1,
+      "comment": "OK",
+      "status": "Đã duyệt",
+      "createdAt": "2025-10-19T03:28:13.417Z"
+    },
+    {
+      "id": "5c99",
+      "userId": "aec9",
+      "productId": "103",
+      "orderCode": "DH1",
+      "rating": 5,
+      "comment": "Tam",
+      "status": "Đã duyệt",
+      "createdAt": "2025-10-19T03:53:49.426Z"
+    },
+    {
+      "id": "b902",
+      "userId": "aec9",
+      "productId": "102",
+      "orderCode": "DH3",
+      "rating": 5,
+      "comment": "ok",
+      "status": "Chờ duyệt",
+      "createdAt": "2025-10-20T02:21:40.080Z"
+    },
+    {
+      "id": "0b1d",
+      "userId": "aec9",
+      "productId": "102",
+      "orderCode": "DH4",
+      "rating": 3,
+      "comment": "ok",
+      "status": "Chờ duyệt",
+      "createdAt": "2025-10-20T02:27:40.136Z"
+    },
+    {
+      "id": "e57e",
+      "userId": "aec9",
+      "productId": "103",
+      "orderCode": "DH4",
+      "rating": 5,
+      "comment": "ok",
+      "status": "Chờ duyệt",
+      "createdAt": "2025-10-20T02:27:48.159Z"
+    },
+    {
+      "id": "33c3",
+      "userId": "aec9",
+      "productId": "104",
+      "orderCode": "DH5",
+      "rating": 5,
+      "comment": "ok",
+      "status": "Chờ duyệt",
+      "createdAt": "2025-10-20T02:35:40.687Z"
+    }
+  ],
+  "favorites": [
+    {
+      "id": "8c7f",
       "idUser": "aec9",
-      "productId": "2",
-      "title": "Smart LED Lamp",
-      "price": 29.5,
-      "image": "https://picsum.photos/seed/lamp/120/120",
-      "quantity": 3
+      "productId": "102",
+      "title": "Áo sơ mi evisu nam",
+      "price": "719,760",
+      "image": "https://thvnext.bing.com/th/id/OIP.Mh2yjVQg19udZ4lnH5e8LQHaH7?w=177&h=190&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
+    },
+    {
+      "id": "84d3",
+      "idUser": "aec9",
+      "productId": "104",
+      "title": "Quần jeans slim fit",
+      "price": "959,760",
+      "image": "https://thvnext.bing.com/th/id/OIP.hGq3M2luGrmIoihUpZf--wHaHa?w=203&h=203&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
     }
   ],
   "products": [
     {
-      "id": "1",
-      "title": "Wireless Headphones",
-      "price": 79.99,
-      "category": "Electronics",
-      "image": "https://picsum.photos/seed/phones/120/120",
-      "description": "Noise-cancelling over-ear with 30h battery."
+      "id": "101",
+      "title": "Áo thun nam cổ tròn",
+      "price": "479,760",
+      "category": "Áo",
+      "image": "https://thvnext.bing.com/th/id/OIP.7zh6PWmPhOqcOtfIOX6zawHaHa?w=216&h=204&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3&ucfimg=1",
+      "description": "Áo thun cotton mềm mại, thoáng khí.",
+      "quantity": 0
     },
     {
-      "id": "2",
-      "title": "Smart LED Lamp",
-      "price": 29.5,
-      "category": "Home",
-      "image": "https://picsum.photos/seed/lamp/120/120",
-      "description": "Warm-to-cool light, app & voice control."
-    },
-    {
-      "id": "3",
-      "title": "Running Shoes",
-      "price": 59,
-      "category": "Fashion",
-      "image": "https://picsum.photos/seed/shoes/120/120",
-      "description": "Breathable mesh, cushioned sole."
-    },
-    {
-      "id": "4",
-      "title": "Bluetooth Speaker",
-      "price": 39.99,
-      "category": "Electronics",
-      "image": "https://picsum.photos/seed/speaker/120/120",
-      "description": "Portable, waterproof, deep bass."
-    },
-    {
-      "title": "Stainless Water Bottle",
-      "price": 123,
-      "category": "Sports",
-      "image": "https://picsum.photos/seed/bottle/120/120",
-      "description": "Vacuum insulated, 750ml.",
+      "title": "Áo sơ mi evisu nam",
+      "price": "719,760",
+      "category": "Áo",
+      "image": "https://thvnext.bing.com/th/id/OIP.Mh2yjVQg19udZ4lnH5e8LQHaH7?w=177&h=190&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3&ucfimg=1",
+      "description": "Sơ mi denim phong cách cổ điển.",
       "creator": "admin",
       "tags": "news",
-      "id": "5"
+      "id": "102",
+      "quantity": 6
+    },
+    {
+      "title": "Áo khoác bomber nam",
+      "price": "1,199,760",
+      "category": "Áo",
+      "image": "https://tse3.mm.bing.net/th/id/OIP.9QLiIFn4Yh-q6j20yZIsNQHaJ4?cb=12ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "description": "Áo khoác bomber chống gió, thời trang.",
+      "creator": "admin",
+      "tags": "news",
+      "id": "103",
+      "quantity": 5
+    },
+    {
+      "id": "104",
+      "title": "Quần jeans slim fit",
+      "price": "959,760",
+      "category": "Quần",
+      "image": "https://thvnext.bing.com/th/id/OIP.hGq3M2luGrmIoihUpZf--wHaHa?w=203&h=203&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3&ucfimg=1",
+      "description": "Quần jeans ôm dáng, co giãn nhẹ.",
+      "quantity": 8
+    },
+    {
+      "id": "105",
+      "title": "Quần jogger thể thao",
+      "price": "839,760",
+      "category": "Quần",
+      "image": "https://tse4.mm.bing.net/th/id/OIP.vDrhgRQBHeY7JOujfeEX9gHaHa?cb=12&pid=ImgDet&ucfimg=1&w=179&h=179&c=7&dpr=1.3&o=7&rm=3",
+      "description": "Jogger vải thun, thoải mái vận động.",
+      "quantity": 9
+    },
+    {
+      "id": "106",
+      "title": "Quần short kaki nam",
+      "price": "599,760",
+      "category": "Quần",
+      "image": "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lxzsj5n5cqfvb9",
+      "description": "Short kaki năng động, phù hợp mùa hè.",
+      "quantity": 10
+    },
+    {
+      "id": "107",
+      "title": "Thắt lưng da nam",
+      "price": "359,760",
+      "category": "Phụ kiện",
+      "image": "https://1102style.vn/wp-content/uploads/2023/01/that-lung-nam-hang-hieu-lv-7.jpg",
+      "description": "Thắt lưng da thật, khóa kim loại.",
+      "quantity": 10
+    },
+    {
+      "id": "108",
+      "title": "Mũ lưỡi trai nam",
+      "price": "311,760",
+      "category": "Phụ kiện",
+      "image": "https://thvnext.bing.com/th/id/OIP.nvCcRp0Fr8q2PaR820mXzgHaHa?w=200&h=200&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3&ucfimg=1",
+      "description": "Mũ lưỡi trai phong cách đường phố.",
+      "quantity": 10
+    },
+    {
+      "id": "109",
+      "title": "Túi đeo chéo vải canvas",
+      "price": "551,760",
+      "category": "Phụ kiện",
+      "image": "https://static.wixstatic.com/media/229701_aed32ce62cfa41db8eece0505597e940~mv2.png/v1/fill/w_921,h_613,al_c,q_90,enc_auto/229701_aed32ce62cfa41db8eece0505597e940~mv2.png",
+      "description": "Túi đeo chéo tiện dụng, chống nước.",
+      "quantity": 10
+    },
+    {
+      "id": "110",
+      "title": "Kính mát phân cực",
+      "price": "455,760",
+      "category": "Phụ kiện",
+      "image": "https://thvnext.bing.com/th/id/OIP.vh8IvhItkDGqA7ngKA7gOAHaHa?w=200&h=200&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3&ucfimg=1",
+      "description": "Kính mát chống tia UV, kiểu dáng hiện đại.",
+      "quantity": 10
+    }
+  ],
+  "category": [
+    {
+      "name": "Áo",
+      "id": "2e3e"
+    },
+    {
+      "name": "Quần",
+      "id": "06ce"
+    },
+    {
+      "name": "Phụ kiện",
+      "id": "73c1"
     }
   ],
   "comments": [

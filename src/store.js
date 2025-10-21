@@ -8,6 +8,7 @@ const store = createStore({
         return {
             products: [],
             carts: [],
+            favorites: [],
             loading: false,
             error: null
         }
@@ -16,6 +17,9 @@ const store = createStore({
     getters: {
         cartItems(state) {
             return state.carts
+        },
+        favoriteItems(state) {
+            return state.favorites
         }
     },
 
@@ -45,6 +49,18 @@ const store = createStore({
         },
         setCartItems(state, items) {
             state.cartItems = items
+        },
+        setFavorites(state, favorites) {
+            state.favorites = favorites
+        },
+        add_favorite(state, item) {
+            const exists = state.favorites.find(f => f.productId === item.productId)
+            if (!exists) {
+                state.favorites.push(item)
+            }
+        },
+        remove_favorite(state, id) {
+            state.favorites = state.favorites.filter(item => item.id !== id)
         }
     },
 
@@ -78,6 +94,13 @@ const store = createStore({
             }
 
             try {
+                const productRes = await axios.get(`${API_URL}/products/${product.id}`)
+                const productData = productRes.data
+
+                if (productData.quantity === 0) {
+                    alert(`Sản phẩm "${product.title}" đã hết hàng.`)
+                    return
+                }
                 const res = await axios.get(`${API_URL}/carts?idUser=${currentUser.id}`)
                 const existingItem = res.data.find(item => item.productId === String(product.id))
 
@@ -126,6 +149,58 @@ const store = createStore({
                 .catch(err => {
                     console.error('Lỗi khi cập nhật số lượng:', err)
                 })
+        },
+        async fetchFavorites({ commit }, userId) {
+            try {
+                const res = await axios.get(`${API_URL}/favorites?idUser=${userId}`)
+                commit('setFavorites', res.data)
+            } catch (err) {
+                console.error('Lỗi khi tải danh sách yêu thích:', err)
+            }
+        },
+
+        async addToFavorites({ commit }, product) {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+            if (!currentUser || !currentUser.id) {
+                alert('Bạn cần đăng nhập để thêm vào yêu thích!')
+                return
+            }
+
+            try {
+                const res = await axios.get(`${API_URL}/favorites?idUser=${currentUser.id}`)
+                const exists = res.data.find(item => item.productId === String(product.id))
+
+                if (exists) {
+                    alert('Sản phẩm đã có trong danh sách yêu thích!')
+                    return
+                }
+
+                const newFavorite = {
+                    idUser: currentUser.id,
+                    productId: String(product.id),
+                    title: product.title,
+                    price: product.price,
+                    image: product.image
+                }
+
+                await axios.post(`${API_URL}/favorites`, newFavorite)
+                commit('add_favorite', newFavorite)
+                alert('Đã thêm vào danh sách yêu thích!')
+            } catch (err) {
+                console.error('Lỗi khi thêm vào yêu thích:', err)
+                alert('Thêm vào yêu thích thất bại!')
+            }
+        },
+
+        async removeFromFavorites({ commit }, id) {
+            try {
+                await axios.delete(`${API_URL}/favorites/${id}`)
+                commit('remove_favorite', id)
+                alert('Đã xóa khỏi danh sách yêu thích!')
+            } catch (err) {
+                console.error('Lỗi khi xóa khỏi yêu thích:', err)
+                alert('Xóa khỏi yêu thích thất bại!')
+            }
         }
     }
 })

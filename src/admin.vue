@@ -84,7 +84,10 @@ const clearData = () => {
         <router-link to="/" class="btn btn-outline-secondary me-2 mb-2">Trang chủ</router-link>
         <router-link to="/postAdmin" class="btn btn-outline-primary me-2 mb-2">Post</router-link>
         <router-link to="/productAdmin" class="btn btn-outline-success me-2 mb-2">Product</router-link>
-        <router-link to="/userAdmin" class="btn btn-outline-warning mb-2">User</router-link>
+        <router-link to="/userAdmin" class="btn btn-outline-warning me-2 mb-2">User</router-link>
+        <router-link to="/orderAdmin" class="btn btn-outline-secondary me-2 mb-2">Order</router-link>
+        <router-link to="/reviewAdmin" class="btn btn-outline-primary me-2 mb-2">Review</router-link>
+        <router-link to="/thongKe" class="btn btn-outline-success me-2 mb-2">Thống Kê</router-link>
       </div>
     </div>
   </div>

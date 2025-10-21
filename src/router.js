@@ -12,7 +12,15 @@ import products from './products.vue'
 import postAdmin from './postAdmin.vue'
 import productAdmin from './productAdmin.vue'
 import userAdmin from './userAdmin.vue'
+import reviewAdmin from './reviewAdmin.vue'
 import carts from './carts.vue'
+import checkOut from './checkOut.vue'
+import orderAdmin from './orderAdmin.vue'
+import orders from './orders.vue'
+import orderSuccess from './orderSuccess.vue'
+import yeuThich from './yeuThich.vue'
+import review from './review.vue'
+import thongKe from './thongKe.vue'
 
 const routes = [
     {path: '/', component: home, meta: { isAuth: false }},
@@ -24,9 +32,17 @@ const routes = [
     {path: '/singup', component: singup, meta: { isAuth: false }},
     {path: '/profile', component: profile, meta: { isAuth: true }},
     {path: '/carts', component: carts, meta: { isAuth: true }},
+    {path: '/checkOut', component: checkOut, meta: { isAuth: true }},
+    {path: '/orderSuccess', component: orderSuccess, meta: { isAuth: true }},
+    {path: '/orders', component: orders, meta: { isAuth: true }},
+    {path: '/yeuThich', component: yeuThich, meta: { isAuth: true }},
+    {path: '/review/:productId', component: review, meta: { isAuth: true }},
     {path: '/postAdmin', component: postAdmin, meta: { isAuth: true }},
     {path: '/productAdmin', component: productAdmin, meta: { isAuth: true }},
     {path: '/userAdmin', component: userAdmin, meta: { isAuth: true }},
+    {path: '/orderAdmin', component: orderAdmin, meta: { isAuth: true }},
+    {path: '/reviewAdmin', component: reviewAdmin, meta: { isAuth: true }},
+    {path: '/thongKe', component: thongKe, meta: { isAuth: true }},
     {path: '/admin', component: admin, meta: { isAuth: true }}
 ]
 

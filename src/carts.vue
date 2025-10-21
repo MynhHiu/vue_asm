@@ -1,6 +1,9 @@
 <script setup>
 import { useStore } from 'vuex'
 import { computed, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const store = useStore()
 const currentUser = JSON.parse(localStorage.getItem('currentUser'))
@@ -12,9 +15,21 @@ onMounted(() => {
     store.dispatch('fetchCart', currentUser.id)
   }
 })
+const increaseQuantity = async (item) => {
+  try {
+    const response = await fetch(`http://localhost:3000/products/${item.productId}`)
+    const product = await response.json()
 
-const increaseQuantity = (item) => {
-  store.dispatch('updateQuantity', { id: item.id, quantity: item.quantity + 1 })
+    if (item.quantity + 1 > product.quantity) {
+      alert(`Sản phẩm "${item.title}" chỉ còn ${product.quantity} chiếc trong kho.`)
+      return
+    }
+
+    store.dispatch('updateQuantity', { id: item.id, quantity: item.quantity + 1 })
+  } catch (error) {
+    console.error('Lỗi khi kiểm tra tồn kho:', error)
+    alert('Sản phẩm hiện không còn.')
+  }
 }
 
 const decreaseQuantity = (item) => {
@@ -28,14 +43,44 @@ const removeItem = (id) => {
   if (confirmDelete) {
     store.dispatch('removeFromCart', id)
   }
-  
+
+}
+const handleBuyNow = async () => {
+  const insufficientItems = []
+
+  for (const item of carts.value) {
+    try {
+      const res = await fetch(`http://localhost:3000/products/${item.productId}`)
+      const product = await res.json()
+
+      if (item.quantity > product.quantity) {
+        insufficientItems.push({
+          title: item.title,
+          requested: item.quantity,
+          available: product.quantity
+        })
+      }
+    } catch (err) {
+      console.error('Lỗi khi kiểm tra sản phẩm:', err)
+      alert(`Không thể kiểm tra sản phẩm "${item.title}".`)
+      return
+    }
+  }
+
+  if (insufficientItems.length > 0) {
+    let message = 'Số lượng sản phẩm không đủ'
+    alert(message)
+    return
+  }
+
+  router.push('/checkOut')
 }
 </script>
 
 <template>
   <router-link class="btn btn-outline-dark mt-3" to="/">Quay lại</router-link>
   <div class="container mt-4">
-    <h3>🛒 Giỏ hàng của bạn</h3>
+    <h3>Giỏ hàng của bạn</h3>
 
     <div v-if="Array.isArray(carts) && carts.length">
       <div v-for="item in carts" :key="item.id" class="cart-item">
@@ -49,10 +94,11 @@ const removeItem = (id) => {
             <span class="mx-2">{{ item.quantity }}</span>
             <button @click="increaseQuantity(item)" class="btn btn-sm btn-outline-secondary">+</button>
           </div>
-          <button @click="removeItem(item.id)" class="btn btn-sm btn-danger mt-2">Xóa</button>
+          <button @click="removeItem(item.id)" class="btn btn-sm btn-danger mt-2 me-2">Xóa</button>
+          <router-link :to="`/products/${item.productId}`" class="btn btn-sm btn-warning mt-2 me-2">Chi tiết</router-link>
         </div>
       </div><br>
-      <button class="btn-checkout">Mua ngay</button>
+      <button class="btn btn-checkout" @click="handleBuyNow">Mua ngay</button>
     </div>
 
     <div v-else>
@@ -124,5 +170,4 @@ const removeItem = (id) => {
 .btn-checkout:hover {
   background-color: #e0a800;
 }
-
 </style>

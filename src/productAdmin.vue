@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, reactive } from 'vue'
+import { ref, onMounted, reactive, computed } from 'vue'
 import axios from 'axios'
 
 const products = ref([])
@@ -13,17 +13,22 @@ const product = reactive({
   description: ''
 })
 
-onMounted(async() => {
+const categories = computed(() => {
+  const unique = new Set(products.value.map(p => p.category))
+  return Array.from(unique)
+})
+
+onMounted(async () => {
   console.log(`the component is now mounted.`)
   const response = await axios.get('http://localhost:3000/products');
-  if(response.status == 200) {
+  if (response.status == 200) {
     products.value = response.data
   }
 })
 
 const handleDelete = async (id) => {
-    const isConfirm = confirm(`Ban co muon xoa id = ${id} nay khong`)
-    if (isConfirm) {
+  const isConfirm = confirm(`Ban co muon xoa id = ${id} nay khong`)
+  if (isConfirm) {
     const response = await axios.delete(`http://localhost:3000/products/${id}`);
     if (response.status == 200) {
       loadDuLieu()
@@ -33,11 +38,11 @@ const handleDelete = async (id) => {
   }
 }
 const loadDuLieu = async () => {
-    console.log(`the component is now mounted.`)
-    const response = await axios.get('http://localhost:3000/products');
-    if (response.status == 200) {
-      products.value = response.data
-    }
+  console.log(`the component is now mounted.`)
+  const response = await axios.get('http://localhost:3000/products');
+  if (response.status == 200) {
+    products.value = response.data
+  }
 }
 const handleSubmit = async () => {
   if (
@@ -81,6 +86,8 @@ const clearData = () => {
     id: '',
     title: '',
     price: '',
+    quantity: '',
+    quantity: '',
     image: '',
     category: '',
     description: ''
@@ -88,10 +95,11 @@ const clearData = () => {
 }
 
 const handleEdit = (item) => {
-    Object.assign(product, {
+  Object.assign(product, {
     id: item.id,
     title: item.title,
-    price: item.price,
+    price: Number(String(item.price).replace(/,/g, '')),
+    quantity: item.quantity,
     image: item.image,
     category: item.category,
     description: item.description
@@ -100,9 +108,9 @@ const handleEdit = (item) => {
 
 </script>
 <template>
-<header class="py-4 bg-white border-bottom mb-4">
+  <header class="py-4 bg-white border-bottom mb-4">
     <div class="container d-flex align-items-center justify-content-between">
-      <router-link :to="`/admin`"><h2 class="h5 mb-1">Quay Lai</h2></router-link>
+      <router-link :to="`/admin`" class="btn btn-outline-dark mt-3">Quay lại</router-link>
     </div>
   </header>
 
@@ -123,6 +131,7 @@ const handleEdit = (item) => {
                     <th style="width:80px">Image</th>
                     <th>Title</th>
                     <th style="width:140px">Category</th>
+                    <th style="width:100px" class="text-end">Quantity</th>
                     <th style="width:120px" class="text-end">Price</th>
                     <th style="width:120px" class="text-end">Action</th>
                   </tr>
@@ -130,11 +139,14 @@ const handleEdit = (item) => {
                 <tbody v-for="item in products" :key="item.id">
                   <tr>
                     <td><img :src="item.image" alt="Products" class="post-thumb w-100 w-sm-auto" /></td>
-                    <td>{{item.title}}</td>
-                    <td><span class="badge text-bg-dark">{{item.category}}</span></td>
-                    <td class="text-end">{{item.price}}$</td>
-                    <button @click="handleEdit(item)" class="btn btn-sm btn-outline-secondary">Edit</button> 
-                    <button @click="handleDelete(item.id)" class="btn btn-sm btn-outline-secondary">Delete</button> 
+                    <td>{{ item.title }}</td>
+                    <td><span class="badge text-bg-dark">{{ item.category }}</span></td>
+                    <td class="text-end"><span
+                        :class="['badge', item.quantity < 3 ? 'bg-danger' : 'bg-primary']">{{ item.quantity }}</span>
+                    </td>
+                    <td class="text-end">{{ item.price }} đ</td>
+                    <button @click="handleEdit(item)" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    <button @click="handleDelete(item.id)" class="btn btn-sm btn-outline-secondary">Delete</button>
                   </tr>
                 </tbody>
               </table>
@@ -151,29 +163,35 @@ const handleEdit = (item) => {
             <form action="#" method="post" @submit.prevent="handleSubmit">
               <div class="mb-3">
                 <label for="pTitle" class="form-label">Title</label>
-                <input type="text" v-model="product.title" class="form-control" id="pTitle" name="title" placeholder="Product title" required>
+                <input type="text" v-model="product.title" class="form-control" id="pTitle" name="title"
+                  placeholder="Product title" required>
               </div>
               <div class="mb-3">
-                <label for="pPrice" class="form-label">Price (USD)</label>
-                <input type="number" v-model="product.price" class="form-control" id="pPrice" name="price" step="0.01" min="0" placeholder="0.00" required>
+                <label for="pPrice" class="form-label">Price (VNĐ)</label>
+                <input type="number" v-model="product.price" class="form-control" id="pPrice" name="price" step="0.01"
+                  min="0" placeholder="Nhập giá tiền" required>
+              </div>
+              <div class="mb-3">
+                <label for="pQuantity" class="form-label">Số lượng</label>
+                <input type="number" v-model="product.quantity" class="form-control" id="pQuantity" name="quantity"
+                  min="0" placeholder="Nhập số lượng" required>
               </div>
               <div class="mb-3">
                 <label for="pCategory" class="form-label">Category</label>
                 <select v-model="product.category" id="pCategory" class="form-select" name="category" required>
                   <option value="" selected>Choose...</option>
-                  <option>Electronics</option>
-                  <option>Home</option>
-                  <option>Fashion</option>
-                  <option>Sports</option>
+                  <option v-for="cat in categories" :key="cat" :value="cat">{{ cat }}</option>
                 </select>
               </div>
               <div class="mb-3">
                 <label for="pImage" class="form-label">Image URL</label>
-                <input type="url" v-model="product.image" class="form-control" id="pImage" name="image" placeholder="https://example.com/image.jpg" required>
+                <input type="url" v-model="product.image" class="form-control" id="pImage" name="image"
+                  placeholder="https://example.com/image.jpg" required>
               </div>
               <div class="mb-3">
                 <label for="pDesc" class="form-label">Description</label>
-                <textarea id="pDesc" v-model="product.description" class="form-control" name="description" rows="3" placeholder="Short product description" required></textarea>
+                <textarea id="pDesc" v-model="product.description" class="form-control" name="description" rows="3"
+                  placeholder="Short product description" required></textarea>
               </div>
 
               <div class="d-flex gap-2">
@@ -181,7 +199,6 @@ const handleEdit = (item) => {
                 <button type="reset" class="btn btn-outline-secondary">Reset</button>
               </div>
 
-              <!-- Optional hidden id field if your backend needs it -->
               <input type="hidden" name="id" value="">
             </form>
           </div>
@@ -198,6 +215,4 @@ const handleEdit = (item) => {
   </footer>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
